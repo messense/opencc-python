@@ -11,7 +11,7 @@ cdef class OpenCC(object):
 
     def __cinit__(self, config='t2s.json'):
         if isinstance(config, unicode):
-            config = config.encode('utf-8')
+            config = (<unicode>config).encode('utf-8')
         self._od = opencc_open(config)
 
     def convert(self, text):
